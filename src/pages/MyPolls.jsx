@@ -44,7 +44,6 @@ const MyPolls = () => {
 
   return (
     <div className='bg-primary text-white min-h-screen'>
-      <NavigationBar />
       <h1 className='font-bold text-white text-4xl text-center mb-6'>
         Polls Created
       </h1>
@@ -57,7 +56,7 @@ const MyPolls = () => {
         {myPolls.map((poll) => (
           <div
             onClick={() => navigate(`/poll/results/${poll._id}`)}
-            className='w-full flex flex-col gap-2 items-center max-w-md md:max-w-lg lg:max-w-2xl rounded-lg border bg-secondary border-gray-200 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105'
+            className='w-full flex flex-col gap-2 items-center max-w-md md:max-w-lg lg:max-w-2xl rounded-lg border bg-boxcolor border-gray-200 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105'
             key={poll._id}
           >
             <h2 className='font-bold text-2xl md:text-3xl lg:text-4xl'>

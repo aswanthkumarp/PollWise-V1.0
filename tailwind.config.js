@@ -8,6 +8,7 @@ module.exports = {
         primary: "#00040f",
         secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
+        boxcolor:"#8FBCBB"
        
        
       },

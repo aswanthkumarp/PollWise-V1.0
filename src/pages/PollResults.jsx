@@ -113,12 +113,12 @@ export const PollResults = () => {
 
   return (
     <div id={`q-${question._id}`} className='bg-primary text-white'>
-      <NavigationBar />
+      
       <div className=' flex flex-col justify-center items-center'>
         <p className='text-end my-5'>
           <span
             style={{ cursor: 'pointer' }}
-            className='text-black'
+            className='text-white'
             onClick={handleShareClick}
           >
             Share <FontAwesomeIcon icon={faExternalLinkAlt} />
@@ -127,7 +127,7 @@ export const PollResults = () => {
         <div className='flex flex-col md:flex-row items-start text-center'>
           <div>
             <h1 className='font-bold text-3xl'>{question.title}</h1>
-            <h6 className='text-black my-4'>
+            <h6 className='text-white my-4'>
               Asked by <span className='text-dark'>{question.user.name}</span>{' '}
               on{' '}
               <span className='mx-2'>
@@ -137,7 +137,7 @@ export const PollResults = () => {
           </div>
 
           <div className='totalVotes col-4 col-md-2 mx-auto mx-md-0 ms-md-auto p-3 d-md-block'>
-            <h3 className='text-center text-black'>Votes</h3>
+            <h3 className='text-center text-white'>Votes</h3>
             <h2 className='text-center font-bold'>
               {getTotalNumberofVotes(question)}
             </h2>

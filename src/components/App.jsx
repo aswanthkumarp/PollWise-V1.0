@@ -18,6 +18,7 @@ import { NewPoll } from '../pages/NewPoll';
 import DeleteQuestion from '../pages/DeleteQuestion';
 import EditQuestion from '../pages/EditQuestion';
 import SearchResults from '../pages/SearchResults';
+import NavigationBar from './NavigationBar';
 
 function PrivateRoute({ children }) {
   const auth = useAuthContext();
@@ -60,6 +61,7 @@ function App() {
           path='/dashboard'
           element={
             <PrivateRoute>
+              <NavigationBar />
               <Dashboard />
             </PrivateRoute>
           }
@@ -68,6 +70,7 @@ function App() {
           path='/mypolls'
           element={
             <PrivateRoute>
+              <NavigationBar />
               <MyPolls />
             </PrivateRoute>
           }
@@ -76,26 +79,25 @@ function App() {
           path='/myvotes'
           element={
             <PrivateRoute>
+              <NavigationBar />
               <MyVotedPolls />
             </PrivateRoute>
           }
         />
-        <Route path='/poll/results/:id' element={<PollResults />} />
-        <Route path='/poll/:id' element={<Poll />} />
-        <Route path='/poll/create-new' element={<NewPoll />} />
         <Route
           path='/delete/:id'
           element={
             <PrivateRoute>
+              <NavigationBar />
               <DeleteQuestion />
             </PrivateRoute>
           }
         />
-        <Route path='/poll/create-new' element={<NewPoll />} />
         <Route
           path='/edit/:id'
           element={
             <PrivateRoute>
+              <NavigationBar />
               <EditQuestion />
             </PrivateRoute>
           }
@@ -104,10 +106,20 @@ function App() {
           path='/search-results'
           element={
             <PrivateRoute>
+              <NavigationBar />
               <SearchResults />
             </PrivateRoute>
           }
         />
+       
+        <Route path='/poll/results/:id' element={<PrivateRoute>
+          <NavigationBar/>
+          <PollResults />
+        </PrivateRoute>} />
+        <Route path='/poll/:id' element={<Poll />} />
+        <Route path='/poll/create-new' element={<NewPoll />} />
+
+        <Route path='/poll/create-new' element={<NewPoll />} />
       </Routes>
     </div>
   );

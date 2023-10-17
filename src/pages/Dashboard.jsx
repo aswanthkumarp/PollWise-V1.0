@@ -71,11 +71,10 @@ const Dashboard = () => {
 
   return (
     <div className='bg-primary text-white'>
-      <NavigationBar />
       <div className='container mx-auto p-4'>
         <div className='flex flex-col justify-center  gap-10'>
           <button
-            className=' text-black bg-secondary font-bold text-xl p-8 rounded-full w-full md:w-auto'
+            className=' text-black bg-boxcolor font-bold text-xl p-8 rounded-full w-full md:w-auto'
             onClick={() => {
               navigate('/poll/create-new');
             }}
@@ -85,7 +84,7 @@ const Dashboard = () => {
 
           <div className='flex flex-row flex-wrap justify-center items-center gap-4 md:gap-16 p-6'>
             <div className='w-full md:w-full lg:w-1/3 xl:w-full p-4'>
-              <div className='rounded-lg shadow-md bg-secondary text-center p-4'>
+              <div className='rounded-lg shadow-md bg-boxcolor text-center p-4'>
                 <FontAwesomeIcon
                   icon={faSquarePollHorizontal}
                   size='2x'
@@ -98,7 +97,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4'>
-              <div className='rounded-lg shadow-md bg-secondary text-center p-4'>
+              <div className='rounded-lg shadow-md bg-boxcolor text-center p-4'>
                 <FontAwesomeIcon
                   icon={faCircleCheck}
                   size='2x'
@@ -121,7 +120,7 @@ const Dashboard = () => {
               onChange={(e) => setSearchKeyword(e.target.value)}
             />
             <button
-              className='bg-secondary text-black font-bold text-xl p-8 h-1/3 rounded-md w-1/3 md:w-/12'
+              className='bg-boxcolor text-black font-bold text-xl p-8 h-1/3 rounded-md w-1/3 md:w-/12'
               onClick={handleSearch}
             >
               Search

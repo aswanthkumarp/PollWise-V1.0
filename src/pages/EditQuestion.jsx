@@ -71,12 +71,12 @@ const EditQuestion = () => {
 
   return (
     <div className='bg-primary text-white min-h-screen'>
-      <NavigationBar />
+      
       {loading ? (
         <Loader />
       ) : (
         <div className='text-center text-white p-4'>
-          <h2 className='text-4xl font-bold text-black mb-6'>Edit Question</h2>
+          <h2 className='text-4xl font-bold text-white mb-6'>Edit Question</h2>
           <div className='flex items-center justify-center mt-4 gap-3'>
             <span className='text-2xl font-semibold block mb-2'>Question:</span>
             <input
@@ -108,7 +108,7 @@ const EditQuestion = () => {
             </div>
           ))}
           <button
-            className='bg-black text-white text-xl font-semibold px-4 py-2 rounded-md mt-6'
+            className='bg-boxcolor text-white text-xl font-semibold px-4 py-2 rounded-md mt-6'
             onClick={handleSave}
           >
             Save

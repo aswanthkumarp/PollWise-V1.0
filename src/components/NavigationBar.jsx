@@ -41,19 +41,17 @@ const NavigationBar = () => {
 
   return (
     <nav className='bg-primary'>
-      <div className=' mx-auto py-3'>
-        <div className='flex justify-between items-center text-center align-middle'>
+      <div className=' mx-auto py-3 flex justify-between items-center text-center align-middle'>
+       <h1 className='text-2xl font-bold text-white'>{auth.user.name}</h1>
           <div
-            className={`flex flex-row text-center justify-center items-center ${
+            className={`flex flex-row text-center  justify-center items-start ${
               isMobile ? 'gap-4' : 'gap-96'
             }`}
           >
             <Link to='/' className='navbar-brand'>
-              <img src={Pollwise} className='h-24 w-24' alt='QuickPoll' />
+              <img src={Pollwise} className='h-24 w-24' alt='PollWise' />
             </Link>
-            <h1 className='text-5xl text-center'>
-              Welcome {auth.user ? auth.user.name : ''}
-            </h1>
+          
           </div>
 
           <div>
@@ -90,17 +88,17 @@ const NavigationBar = () => {
               )}
             </div>
           )}
-        </div>
+        
       </div>
 
       {auth.user && (
-        <div className='w-full mb-4 border-r-4 bg-transparent'>
+        <div className='w-full   bg-transparent'>
           <div className='flex flex-row justify-center gap-10 h-24 items-center'>
             {navLinks.map((link) => (
               <div
                 key={link.to}
                 className={`cursor-pointer mx-2 py-3 p-md-3 text-xl ${
-                  location.pathname === link.to ? ' text-secondary' : ''
+                  location.pathname === link.to ? ' text-secondary' : 'text-white'
                 }`}
                 onClick={() => {
                   setTabState(link.label.toLowerCase());

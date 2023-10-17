@@ -40,7 +40,6 @@ export const MyVotedPolls = () => {
 
   return (
     <div className='bg-primary text-white min-h-screen'>
-      <NavigationBar />
       <div>
         <h1 className='font-bold text-white text-4xl text-center mb-6'>
           Polls Voted
@@ -55,7 +54,7 @@ export const MyVotedPolls = () => {
             return (
               <div
                 key={poll._id}
-                className='w-full poll-box flex flex-col p-6 align-middle justify-center gap-2 items-center max-w-md md:max-w-lg lg:max-w-2xl rounded-lg border bg-secondary border-gray-200 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105'
+                className='w-full poll-box flex flex-col p-6 align-middle justify-center gap-2 items-center max-w-md md:max-w-lg lg:max-w-2xl rounded-lg border bg-boxcolor border-gray-200 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105'
                 onClick={() => navigate(`/poll/results/${poll._id}`)}
               >
                 <h2 className='font-bold text-2xl md:text-3xl lg:text-4xl'>

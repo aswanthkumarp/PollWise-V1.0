@@ -29,7 +29,7 @@ const SearchResults = () => {
               key={question._id}
               className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4'
             >
-              <div className='bg-secondary rounded-lg border border-gray-200 cursor-pointer hover:scale-105 transition duration-300 ease-in-out'>
+              <div className='bg-boxcolor rounded-lg border border-gray-200 cursor-pointer hover:scale-105 transition duration-300 ease-in-out'>
                 <div
                   className='p-6 align-middle justify-center items-center'
                   onClick={(event) => navigate(`/poll/results/${question._id}`)}

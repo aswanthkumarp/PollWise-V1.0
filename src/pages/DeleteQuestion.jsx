@@ -36,7 +36,7 @@ const {id } = useParams();
 
   return (
     <div className="bg-primary text-white h-screen">
-      <NavigationBar />
+      
       <div className="text-center">
         <h1>Are you sure you want to delete this question?</h1>
         <button
