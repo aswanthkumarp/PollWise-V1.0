@@ -1,0 +1,25 @@
+.optionCard {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 30px;
+  margin: 2rem;
+  word-wrap: break-word;
+  position: relative;
+  width: 75%;
+}
+
+.votePercentage {
+  position: absolute;
+  top: -18px;
+  right: -15px;
+  box-shadow: rgba(245, 243, 243, 0.2) 0px 2px 8px 0px;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 1.3rem;
+  z-index: 2;
+  background-color:black;
+  color:cyan
+}
+
+.optionCard .progress-bar {
+  transition: all 1s ease-in !important;
+}
