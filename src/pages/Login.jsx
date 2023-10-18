@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { LoginImage, Pollwise } from '../assets';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import CircularProgress from '@mui/material/CircularProgress';
+
 import { Button } from '@mui/material';
 import { notify } from '../components/Notification';
 
@@ -67,10 +67,11 @@ function Login() {
       else notify().error('No User found.Register to begin');
     }
   };
-  // If already logged in navigate to home
+
   if (auth.user) {
     return navigate('/dashboard');
   }
+ 
 
   return (
     <div className='flex h-screen bg-primary gap-32'>
@@ -80,7 +81,7 @@ function Login() {
         </div>
 
         <div className='max-w-md w-full'>
-          <h2 className='text-3xl font-semibold text-center text-black mb-6'>
+          <h2 className='text-3xl font-semibold text-center text-secondary mb-6'>
             Sign In
           </h2>
           <form action='' id='login-form' onSubmit={handleFormSubmit}>

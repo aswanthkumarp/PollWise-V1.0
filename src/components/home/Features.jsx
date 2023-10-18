@@ -26,7 +26,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
 const Features = () => (
   <section id='features' className={layout.section}>
     <div className={layout.sectionInfo}>
-      <h1 className=' text-black text-6xl'>
+      <h1 className=' text-secondary text-6xl'>
         Create and Share Polls <br className='sm:block hidden' /> with Pollwise
       </h1>
 

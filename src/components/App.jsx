@@ -53,7 +53,7 @@ function App() {
       <ToastContainer />
 
       <Routes>
-        {/* Home */}
+      
         <Route index element={<Home />}></Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />

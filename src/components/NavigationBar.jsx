@@ -42,9 +42,9 @@ const NavigationBar = () => {
   return (
     <nav className='bg-primary'>
       <div className=' mx-auto py-3 flex justify-between items-center text-center align-middle'>
-       <h1 className='text-2xl font-bold text-white'>{auth.user.name}</h1>
+    
           <div
-            className={`flex flex-row text-center  justify-center items-start ${
+            className={`flex text-center  justify-center items-start ${
               isMobile ? 'gap-4' : 'gap-96'
             }`}
           >

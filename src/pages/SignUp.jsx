@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
-import { Navigate, useNavigate, Link } from 'react-router-dom';
+import {  useNavigate, Link } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { getIsEmailUnique as isUnique, signup } from '../api';
@@ -139,7 +139,7 @@ export const SignUp = function () {
   };
   // if user is logged in redirect to login page
   if (auth.user) {
-    return <Navigate to='/login' />;
+    return navigate('/login');
   }
 
   const redirectToLogin = () => {
@@ -151,7 +151,7 @@ export const SignUp = function () {
         <div className='cursor-pointer' onClick={redirectToHomepage}>
           <img src={Pollwise} alt='' className='w-20 h-20' />
         </div>
-        <h2 className='text-3xl font-semibold text-black mb-6'>Sign Up</h2>
+        <h2 className='text-3xl font-semibold text-secondary mb-6'>Sign Up</h2>
         {/* Sign up Form */}
         <form
           className='max-w-md w-full'
