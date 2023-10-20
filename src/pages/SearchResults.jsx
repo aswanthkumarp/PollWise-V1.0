@@ -19,7 +19,7 @@ const SearchResults = () => {
     <div className='bg-primary h-screen'>
       <div className='container mx-auto p-4'>
         <div className='text-center text-white'>
-          <h1 className='text-4xl font-bold text-black mt-6 mb-10'>
+          <h1 className='text-4xl font-bold text-secondary mt-6 mb-10'>
             Questions Found
           </h1>
         </div>
@@ -32,7 +32,7 @@ const SearchResults = () => {
               <div className='bg-boxcolor rounded-lg border border-gray-200 cursor-pointer hover:scale-105 transition duration-300 ease-in-out'>
                 <div
                   className='p-6 align-middle justify-center items-center'
-                  onClick={(event) => navigate(`/poll/results/${question._id}`)}
+                  onClick={() => navigate(`/poll/results/${question._id}`)}
                 >
                   <h2 className='text-2xl font-bold text-white'>
                     {question.title}

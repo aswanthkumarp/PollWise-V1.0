@@ -34,7 +34,7 @@ export const removeItemFromLocalStorage = (key) => {
   return localStorage.removeItem(key);
 };
 
-export const LOCALSTORAGE_TOKEN_KEY = "__quickpoll_token__";
+export const LOCALSTORAGE_TOKEN_KEY = "__pollwise_token__Key__";
 
 // Get date and time
 

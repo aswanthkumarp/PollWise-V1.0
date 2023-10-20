@@ -23,6 +23,7 @@ const {id } = useParams();
       if (response.status === 200) {
         notify().success("Question deleted successfully");
         navigate("/dashboard"); // Redirect to the desired page after deletion
+        console.log(1111,token)
       } else if (response.status === 401) {
         notify().error("Unauthorized to delete this question");
       } else {

@@ -3,8 +3,6 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuthContext } from '../hooks';
 import { Pollwise } from '../assets';
 import { notify } from './Notification';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import { Button } from '@mui/material';
 import { useMediaQuery } from 'react-responsive';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -42,53 +40,47 @@ const NavigationBar = () => {
   return (
     <nav className='bg-primary'>
       <div className=' mx-auto py-3 flex justify-between items-center text-center align-middle'>
-    
-          <div
-            className={`flex text-center  justify-center items-start ${
-              isMobile ? 'gap-4' : 'gap-96'
-            }`}
-          >
-            <Link to='/' className='navbar-brand'>
-              <img src={Pollwise} className='h-24 w-24' alt='PollWise' />
-            </Link>
-          
-          </div>
+        <div
+          className={`flex text-center  justify-center items-start ${
+            isMobile ? 'gap-4' : 'gap-96'
+          }`}
+        >
+          <Link to='/' className='navbar-brand'>
+            <img src={Pollwise} className='h-24 w-24' alt='PollWise' />
+          </Link>
+        </div>
 
-          <div>
-            {auth.user && (
-              <div>
-                <Button
-                  id='basic-button'
-                  aria-controls='basic-menu'
-                  aria-haspopup='true'
-                  onClick={handleClick}
-                >
-                  <LogoutIcon
-                    onClick={handleLogout}
-                    sx={{ fontSize: '40px' }}
-                  />
-                </Button>
-              </div>
-            )}
-          </div>
-
-          {auth.user === null && (
+        <div>
+          {auth.user && (
             <div>
-              {isMobile && (
-                <Link to='/login'>
-                  <button className='bg-light px-4 py-2 rounded-md mx-1'>
-                    Login
-                  </button>
-                </Link>
-              )}
-              {isMobile && (
-                <Link to='/sign-up' className='text-decoration-none'>
-                  <button className='btn btn-primary'>Sign up</button>
-                </Link>
-              )}
+              <Button
+                id='basic-button'
+                aria-controls='basic-menu'
+                aria-haspopup='true'
+                onClick={handleClick}
+              >
+                <LogoutIcon onClick={handleLogout} sx={{ fontSize: '40px' }} />
+              </Button>
             </div>
           )}
-        
+        </div>
+
+        {auth.user === null && (
+          <div>
+            {isMobile && (
+              <Link to='/login'>
+                <button className='bg-light px-4 py-2 rounded-md mx-1'>
+                  Login
+                </button>
+              </Link>
+            )}
+            {isMobile && (
+              <Link to='/sign-up' className='text-decoration-none'>
+                <button className='btn btn-primary'>Sign up</button>
+              </Link>
+            )}
+          </div>
+        )}
       </div>
 
       {auth.user && (
@@ -98,7 +90,9 @@ const NavigationBar = () => {
               <div
                 key={link.to}
                 className={`cursor-pointer mx-2 py-3 p-md-3 text-xl ${
-                  location.pathname === link.to ? ' text-secondary' : 'text-white'
+                  location.pathname === link.to
+                    ? ' text-secondary'
+                    : 'text-white'
                 }`}
                 onClick={() => {
                   setTabState(link.label.toLowerCase());

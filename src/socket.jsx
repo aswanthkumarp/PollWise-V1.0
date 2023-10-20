@@ -35,7 +35,7 @@ export const socketManager = {
   },
 
   emitToMountedComponents: (event, data) => {
-    socketManager.listeners.forEach((listener) => {
+    socketManager.listeners.forEach(() => {
       socket.emit(event, data);
     });
   },

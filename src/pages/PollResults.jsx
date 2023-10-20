@@ -12,7 +12,6 @@ import { ErrorNotFound } from './Error404';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { notify } from '../components/Notification';
-import NavigationBar from '../components/NavigationBar';
 import { socketManager } from '../socket';
 
 export const PollResults = () => {
@@ -38,7 +37,7 @@ export const PollResults = () => {
       }
     }
     async function fetchDataCookie() {
-      const objectString = Cookies.get('quick-poll');
+      const objectString = Cookies.get('pollwise');
       if (objectString) {
         // contains the ID of questions voted
         const questions = JSON.parse(objectString);
@@ -113,7 +112,6 @@ export const PollResults = () => {
 
   return (
     <div id={`q-${question._id}`} className='bg-primary text-white'>
-      
       <div className=' flex flex-col justify-center items-center'>
         <p className='text-end my-5'>
           <span
@@ -168,18 +166,18 @@ export const PollResults = () => {
           <div className='fixed inset-0 flex items-center justify-center z-50'>
             <div className='bg-primary w-96 p-4 rounded-lg shadow-md'>
               <h2 className='text-2xl font-bold mb-4'>Share Link</h2>
-              <p className='text-black'>Poll Vote Link</p>
+              <p className='text-white'>Poll Vote Link</p>
               <div className=' p-2 rounded' id='copy-link'>
                 http://localhost:5173/poll/{question._id}
               </div>
-              <p className='text-black mt-4'>
+              <p className='text-white mt-4'>
                 Copy the link from above to easily share this poll.
               </p>
               <div className='mt-4 text-center'>
                 <CopyButton />
               </div>
               <button
-                className='mt-4  text-black text-sm py-2 px-4 rounded hover:bg-gray-300'
+                className='mt-4  text-white bg-boxcolor text-sm py-2 px-4 rounded hover:bg-gray-300'
                 onClick={handleShareClick}
               >
                 Close

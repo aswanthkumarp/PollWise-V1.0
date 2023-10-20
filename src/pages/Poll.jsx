@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Cookies from 'js-cookie';
 
-import { connectionManager, socket } from '../socket';
+import {  socket } from '../socket';
 
 import { getPollResults, addVote, getUserChosenOption } from '../api';
 import { Loader } from '../components/Loader';
@@ -13,7 +13,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { notify } from '../components/Notification';
 import { ErrorNotFound } from './Error404';
 import { useAuthContext } from '../hooks';
-import NavigationBar from '../components/NavigationBar';
+
 export const Poll = () => {
   const auth = useAuthContext();
   //manages the question associated with the page
@@ -130,19 +130,19 @@ export const Poll = () => {
         if (!auth.user) {
           // Checks if this is the first vote
 
-          const votedPollsString = Cookies.get('quick-poll');
+          const votedPollsString = Cookies.get('pollwise');
           if (votedPollsString) {
             const votedPolls = JSON.parse(votedPollsString);
 
             // Checks if user has already voted
 
             votedPolls[questionID] = chosenOption;
-            Cookies.set('quick-poll', JSON.stringify(votedPolls));
+            Cookies.set('pollwise', JSON.stringify(votedPolls));
           } else {
             const votedPolls = {};
             votedPolls[questionID] = chosenOption;
 
-            Cookies.set('quick-poll', JSON.stringify(votedPolls));
+            Cookies.set('pollwise', JSON.stringify(votedPolls));
           }
         }
 
@@ -164,7 +164,7 @@ export const Poll = () => {
 
   return (
     <div className='bg-primary min-h-screen  text-white'>
-      <NavigationBar />
+    
       <div className='col-11 col-md-8 mx-auto my-5 flex flex-col items-center text-center'>
         {chosenOption === '' || !isVoted ? undefined : (
           <span className='bg-success  rounded-pill p-2 text-2xl '>
@@ -182,7 +182,7 @@ export const Poll = () => {
             {/* Creater name and time of creation */}
             <h6 className=' text-xl me-3 my-4  gap-2 text-cyan-600'>
               Asked by{' '}
-              <span className='text-dark me-3 text-xl  font-bold text-black'>
+              <span className='text-dark me-3 text-xl  font-bold text-secondary'>
                 {question.user.name} <span className='text-cyan-600'>on</span>{' '}
                 {getFormattedDate(question.createdAt)}
               </span>
@@ -194,11 +194,11 @@ export const Poll = () => {
                   // Does not allow voter to see result if he has not voted
                   chosenOption === '' || !isVoted
                     ? () => {
-                        notify().error('You cannot view results before voting');
-                      }
+                      notify().error('You cannot view results before voting');
+                    }
                     : () => {
-                        navigate(`/poll/results/${questionID}`);
-                      }
+                      navigate(`/poll/results/${questionID}`);
+                    }
                 }
               >
                 Jump to results &#62;
@@ -213,22 +213,20 @@ export const Poll = () => {
             // Compares the option ids with the choseOption if any
             <div
               id={option._id}
-              className={`optionCard flex border-2  ${
-                option._id === chosenOption ? 'border-success border-8 ' : ''
-              } rounded-full `}
+              className={`optionCard flex border-2  ${option._id === chosenOption ? 'border-success border-8 ' : ''
+                } rounded-full `}
               style={{
                 transform: option._id === chosenOption && `translateX(100)`,
               }}
               onClick={
                 chosenOption === '' || !isVoted ? chooseOption : undefined
               }
-              // Disables click events if already voted
+            // Disables click events if already voted
             >
               <div
                 style={{ width: `40px` }}
-                className={`flex justify-center items-center border-4 rounded-full     ${
-                  option._id === chosenOption ? '' : 'border-4'
-                }`}
+                className={`flex justify-center items-center border-4 rounded-full     ${option._id === chosenOption ? '' : 'border-4'
+                  }`}
               >
                 {/* Checkbox */}
                 {option._id === chosenOption ? (

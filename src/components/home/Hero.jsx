@@ -9,9 +9,7 @@ const Hero = () => {
   const handleStart = () => {
     if (auth.user) {
       return navigate('/dashboard');
-    } else {
-      return navigate('/login');
-    }
+    } 
   };
   return (
     <section

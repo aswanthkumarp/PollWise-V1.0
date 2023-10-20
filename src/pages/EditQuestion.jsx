@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { fetchQuestionById, editQuestion } from '../api';
 import { notify } from '../components/Notification';
 import { Loader } from '../components/Loader';
-import NavigationBar from '../components/NavigationBar';
 
 const EditQuestion = () => {
   const [loading, setLoading] = useState(true);
@@ -71,12 +70,13 @@ const EditQuestion = () => {
 
   return (
     <div className='bg-primary text-white min-h-screen'>
-      
       {loading ? (
         <Loader />
       ) : (
         <div className='text-center text-white p-4'>
-          <h2 className='text-4xl font-bold text-white mb-6'>Edit Question</h2>
+          <h2 className='text-4xl font-bold text-secondary mb-6'>
+            Edit Question
+          </h2>
           <div className='flex items-center justify-center mt-4 gap-3'>
             <span className='text-2xl font-semibold block mb-2'>Question:</span>
             <input

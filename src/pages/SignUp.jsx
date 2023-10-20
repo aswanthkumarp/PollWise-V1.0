@@ -1,39 +1,26 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
-import {  useNavigate, Link } from 'react-router-dom';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useNavigate, Link } from 'react-router-dom';
 import { getIsEmailUnique as isUnique, signup } from '../api';
 import { notify } from '../components/Notification';
 import { useAuthContext } from '../hooks';
-import { SignupImage, Pollwise } from '../assets';
+import { SignupImage } from '../assets';
 
 export const SignUp = function () {
-  //   const theme = useTheme();
   const auth = useAuthContext();
-  // Hook for email
   const [email, setEmail] = useState('');
-  // Hook for Validation of email
-  // contains -isValid,message
-  // A valid email is if follows '@domain_name.xyz and is unique'
   const [emailValidation, setEmailValidation] = useState({
     isValid: false,
     message: '',
   });
-  // Hook for input Name
   const [name, setName] = useState(undefined);
-  // Hook for input : Password
   const [password, setPassword] = useState('');
-  // Hook for input : confirm password
   const [confimrPassword, setConfirmPassword] = useState('');
-  // Hook for password validaiton A password is validate
-  //  - minimum 6 characters length
-  // - the password and cofirm password match
   const [passwordValidation, setPasswordValidation] = useState({
     isValid: false,
     message: '',
   });
-  // Loading to freeze the button on click in order prevent unneccessary mutliple requests
+
   const [loading, setLoading] = useState(false);
 
   // Allover Form Validation
@@ -105,9 +92,7 @@ export const SignUp = function () {
     }
   };
 
-  const redirectToHomepage = () => {
-    navigate('/');
-  };
+
   // Handles Form Submit
   const handleFormSubmit = async (event) => {
     try {
@@ -148,11 +133,7 @@ export const SignUp = function () {
   return (
     <div className='bg-primary h-screen flex gap-32 '>
       <div className='w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col items-center justify-center p-8 '>
-        <div className='cursor-pointer' onClick={redirectToHomepage}>
-          <img src={Pollwise} alt='' className='w-20 h-20' />
-        </div>
         <h2 className='text-3xl font-semibold text-secondary mb-6'>Sign Up</h2>
-        {/* Sign up Form */}
         <form
           className='max-w-md w-full'
           id='sign-up-form'
@@ -240,8 +221,9 @@ export const SignUp = function () {
           {/* Submit button */}
           <Button
             variant='contained'
+            
             color={formInputValidation ? 'primary' : 'secondary'} // Use 'primary' or 'secondary' here
-            className='col-10 col-lg-3 m-4 p-2'
+            className='col-10 col-lg-3 m-4 p-2 text-white'
             type='submit'
             form='sign-up-form'
             disabled={!formInputValidation || loading}

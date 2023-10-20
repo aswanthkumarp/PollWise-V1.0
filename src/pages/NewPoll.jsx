@@ -99,8 +99,8 @@ export const NewPoll = () => {
       <NavigationBar />
       <div className='col-11 col-md-8 mx-auto my-5'>
         <form action='' id='create-poll-form' onSubmit={handlePollSubmit}>
-          <h1 className='font-bold text-3xl'>Create a poll</h1>
-          <h6 className='font-bold text-black mt-3'>
+          <h1 className='font-bold text-secondary text-3xl'>Create a poll</h1>
+          <h6 className='font-bold text-white mt-3'>
             Complete the below fields to create your poll
           </h6>
 

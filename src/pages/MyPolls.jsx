@@ -5,7 +5,6 @@ import { Loader } from '../components/Loader';
 import { getFormattedDate } from '../utils';
 import { useAuthContext } from '../hooks';
 import { notify } from '../components/Notification';
-import NavigationBar from '../components/NavigationBar';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 

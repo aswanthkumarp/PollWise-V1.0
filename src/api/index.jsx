@@ -100,7 +100,7 @@ export const getPollResults = (questionID) => {
 };
 
 // Adds vote for the option with ID:optionID and
-//  adds the {question:votedoption} map to the user document
+
 export const addVote = (optionID, userID) => {
   return customFetch(API_URLS.addVote(optionID), {
     body: {

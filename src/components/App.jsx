@@ -1,5 +1,11 @@
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-// import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+
 import Home from '../pages/Home';
 import { connectionManager, socket } from '../socket';
 
@@ -32,6 +38,7 @@ function PrivateRoute({ children }) {
 function App() {
   const auth = useAuthContext();
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Initialising socket connection
   connectionManager(socket).connect();
@@ -51,17 +58,17 @@ function App() {
   return (
     <div className='App'>
       <ToastContainer />
+      {location.pathname !== '/' && <NavigationBar />}
 
       <Routes>
-      
-        <Route index element={<Home />}></Route>
+        {/* Home */}
+        <Route path='/' element={<Home />}></Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route
           path='/dashboard'
           element={
             <PrivateRoute>
-              <NavigationBar />
               <Dashboard />
             </PrivateRoute>
           }
@@ -70,7 +77,6 @@ function App() {
           path='/mypolls'
           element={
             <PrivateRoute>
-              <NavigationBar />
               <MyPolls />
             </PrivateRoute>
           }
@@ -79,25 +85,26 @@ function App() {
           path='/myvotes'
           element={
             <PrivateRoute>
-              <NavigationBar />
               <MyVotedPolls />
             </PrivateRoute>
           }
         />
+        <Route path='/poll/results/:id' element={<PollResults />} />
+        <Route path='/poll/:id' element={<Poll />} />
+        <Route path='/poll/create-new' element={<NewPoll />} />
         <Route
           path='/delete/:id'
           element={
             <PrivateRoute>
-              <NavigationBar />
               <DeleteQuestion />
             </PrivateRoute>
           }
         />
+        <Route path='/poll/create-new' element={<NewPoll />} />
         <Route
           path='/edit/:id'
           element={
             <PrivateRoute>
-              <NavigationBar />
               <EditQuestion />
             </PrivateRoute>
           }
@@ -106,20 +113,10 @@ function App() {
           path='/search-results'
           element={
             <PrivateRoute>
-              <NavigationBar />
               <SearchResults />
             </PrivateRoute>
           }
         />
-       
-        <Route path='/poll/results/:id' element={<PrivateRoute>
-          <NavigationBar/>
-          <PollResults />
-        </PrivateRoute>} />
-        <Route path='/poll/:id' element={<Poll />} />
-        <Route path='/poll/create-new' element={<NewPoll />} />
-
-        <Route path='/poll/create-new' element={<NewPoll />} />
       </Routes>
     </div>
   );

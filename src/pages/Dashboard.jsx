@@ -9,7 +9,6 @@ import { getMyPolls, getMyVotedPolls, searchQuestions } from '../api';
 import { Loader } from '../components/Loader';
 import { useAuthContext } from '../hooks';
 import { notify } from '../components/Notification';
-import NavigationBar from '../components/NavigationBar';
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);

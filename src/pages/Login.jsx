@@ -1,29 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuthContext } from '../hooks';
 import { useNavigate, Link } from 'react-router-dom';
-import { LoginImage, Pollwise } from '../assets';
+import { LoginImage } from '../assets';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-
 import { Button } from '@mui/material';
 import { notify } from '../components/Notification';
 
 function Login() {
-  const [users, setUsers] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const redirectToHomepage = () => {
-    navigate('/');
-  };
   const loginButtonDefaultState = { state: false, buttonTag: 'Login' };
   const [loggingIn, setLoggingIn] = useState({
     ...loginButtonDefaultState,
@@ -44,7 +39,7 @@ function Login() {
       ),
     });
     // Function call
-    let response = await auth.login(email, password);
+    let response =await auth.login(email, password);
     // enables the form submit button
     setLoggingIn({ ...loginButtonDefaultState });
     if (!response) {
@@ -71,20 +66,15 @@ function Login() {
   if (auth.user) {
     return navigate('/dashboard');
   }
- 
 
   return (
     <div className='flex h-screen bg-primary gap-32'>
       <div className='w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col items-center justify-center p-8'>
-        <div className='mb-6 cursor-pointer' onClick={redirectToHomepage}>
-          <img src={Pollwise} alt='pollwiselogo' className='w-20 h-20' />
-        </div>
-
         <div className='max-w-md w-full'>
           <h2 className='text-3xl font-semibold text-center text-secondary mb-6'>
             Sign In
           </h2>
-          <form action='' id='login-form' onSubmit={handleFormSubmit}>
+          <form  id='login-form' onSubmit={handleFormSubmit}>
             <div className='mb-4'>
               <label className='block text-gray-600 font-medium'>
                 Email Address

@@ -5,7 +5,6 @@ import { Loader } from '../components/Loader';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../hooks';
 import { notify } from '../components/Notification';
-import NavigationBar from '../components/NavigationBar';
 
 export const MyVotedPolls = () => {
   const [loading, setLoading] = useState(true);
