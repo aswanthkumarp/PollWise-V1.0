@@ -24,14 +24,14 @@ export const NewPoll = () => {
 
   useEffect(() => {
     let optionsList = [...options];
-    if (!isFirstRender) {
-      optionsList = optionsList.filter((option) => {
-        if (option.value !== '') {
-          return true;
-        }
-        return false;
-      });
-    }
+    // if (!isFirstRender) {
+    //   optionsList = optionsList.filter((option) => {
+    //     if (option.value !== '') {
+    //       return true;
+    //     }
+    //     return false;
+    //   });
+    // }
 
     if (optionsList.length < 2) {
       setPollFormValidation({
@@ -44,7 +44,7 @@ export const NewPoll = () => {
         message: '',
       });
     }
-    setIsFirstRender(true);
+    // setIsFirstRender(true);
   }, [options]);
 
   const handleInputChange = (event) => {
@@ -68,7 +68,7 @@ export const NewPoll = () => {
     optionsList = optionsList.map((option) => {
       return option.value;
     });
-    setIsFirstRender(false);
+    // setIsFirstRender(false);
     if (question === '' || optionsList.length < 2) {
       setPollFormValidation({
         isValid: false,
@@ -96,7 +96,7 @@ export const NewPoll = () => {
   }
   return (
     <div className='bg-primary text-white min-h-screen flex flex-col '>
-      <NavigationBar />
+    
       <div className='col-11 col-md-8 mx-auto my-5'>
         <form action='' id='create-poll-form' onSubmit={handlePollSubmit}>
           <h1 className='font-bold text-secondary text-3xl'>Create a poll</h1>
@@ -105,7 +105,7 @@ export const NewPoll = () => {
           </h6>
 
           <div id='poll-question' className='my-5'>
-            <label className='mb-3 text-black'>Poll Question</label>
+            <label className='mb-3 text-white'>Poll Question</label>
             <textarea
               form='create-poll-form'
               onChange={(event) => {
@@ -118,7 +118,7 @@ export const NewPoll = () => {
           </div>
           {options.map((option, index) => (
             <div key={`option-container-${index}`} className='mb-4'>
-              <label className='text-black'>Poll Option {index + 1}</label>
+              <label className='text-white'>Poll Option {index + 1}</label>
               <input
                 id={`option-${index}`}
                 onChange={handleInputChange}
@@ -138,6 +138,7 @@ export const NewPoll = () => {
           ))}
           <div className='mt-4'>
             <button
+              type='button'
               className='btn btn-primary col-5 col-md-3 p-3'
               onClick={() => {
                 setOptions([...options, { value: '' }]);
