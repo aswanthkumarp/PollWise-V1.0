@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Cookies from 'js-cookie';
 
-import {  socket } from '../socket';
+import { socket } from '../socket';
 
 import { getPollResults, addVote, getUserChosenOption } from '../api';
 import { Loader } from '../components/Loader';
@@ -164,7 +164,6 @@ export const Poll = () => {
 
   return (
     <div className='bg-primary min-h-screen  text-white'>
-    
       <div className='col-11 col-md-8 mx-auto my-5 flex flex-col items-center text-center'>
         {chosenOption === '' || !isVoted ? undefined : (
           <span className='bg-success  rounded-pill p-2 text-2xl '>
@@ -194,11 +193,11 @@ export const Poll = () => {
                   // Does not allow voter to see result if he has not voted
                   chosenOption === '' || !isVoted
                     ? () => {
-                      notify().error('You cannot view results before voting');
-                    }
+                        notify().error('You cannot view results before voting');
+                      }
                     : () => {
-                      navigate(`/poll/results/${questionID}`);
-                    }
+                        navigate(`/poll/results/${questionID}`);
+                      }
                 }
               >
                 Jump to results &#62;
@@ -213,20 +212,22 @@ export const Poll = () => {
             // Compares the option ids with the choseOption if any
             <div
               id={option._id}
-              className={`optionCard flex border-2  ${option._id === chosenOption ? 'border-success border-8 ' : ''
-                } rounded-full `}
+              className={`optionCard flex border-2  ${
+                option._id === chosenOption ? 'border-success border-8 ' : ''
+              } rounded-full `}
               style={{
                 transform: option._id === chosenOption && `translateX(100)`,
               }}
               onClick={
                 chosenOption === '' || !isVoted ? chooseOption : undefined
               }
-            // Disables click events if already voted
+              // Disables click events if already voted
             >
               <div
                 style={{ width: `40px` }}
-                className={`flex justify-center items-center border-4 rounded-full     ${option._id === chosenOption ? '' : 'border-4'
-                  }`}
+                className={`flex justify-center items-center border-4 rounded-full     ${
+                  option._id === chosenOption ? '' : 'border-4'
+                }`}
               >
                 {/* Checkbox */}
                 {option._id === chosenOption ? (

@@ -37,7 +37,7 @@ const Hero = () => {
         </p>
 
         <button
-          onClick={handleStart}
+          onClick={()=>navigate('/dashboard')}
           className=' bg-cyan-500 text-white py-4 px-6 rounded-full mt-4 '
         >
           Get Started

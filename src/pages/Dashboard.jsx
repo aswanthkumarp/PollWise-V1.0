@@ -58,7 +58,7 @@ const Dashboard = () => {
       console.log('Response from searchQuestions:', response); // Add this line
       if (response.success) {
         const questions = response.data; // List of questions matching the keyword
-        console.log('Questions data:', questions); // Add this line
+
         navigate('/search-results', { state: { questions: questions } });
       }
     }

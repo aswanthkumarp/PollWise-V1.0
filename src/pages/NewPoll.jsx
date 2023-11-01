@@ -4,11 +4,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../styles/NewPoll.css';
 import { createNewPoll } from '../api';
-import NavigationBar from '../components/NavigationBar';
 
 export const NewPoll = () => {
   const auth = useAuthContext();
-  const [isFirstRender, setIsFirstRender] = useState(true);
   const [pollFormValidation, setPollFormValidation] = useState({
     isValid: false,
     message: '',
@@ -24,14 +22,6 @@ export const NewPoll = () => {
 
   useEffect(() => {
     let optionsList = [...options];
-    // if (!isFirstRender) {
-    //   optionsList = optionsList.filter((option) => {
-    //     if (option.value !== '') {
-    //       return true;
-    //     }
-    //     return false;
-    //   });
-    // }
 
     if (optionsList.length < 2) {
       setPollFormValidation({
@@ -44,7 +34,6 @@ export const NewPoll = () => {
         message: '',
       });
     }
-    // setIsFirstRender(true);
   }, [options]);
 
   const handleInputChange = (event) => {
@@ -68,7 +57,7 @@ export const NewPoll = () => {
     optionsList = optionsList.map((option) => {
       return option.value;
     });
-    // setIsFirstRender(false);
+
     if (question === '' || optionsList.length < 2) {
       setPollFormValidation({
         isValid: false,
@@ -96,7 +85,6 @@ export const NewPoll = () => {
   }
   return (
     <div className='bg-primary text-white min-h-screen flex flex-col '>
-    
       <div className='col-11 col-md-8 mx-auto my-5'>
         <form action='' id='create-poll-form' onSubmit={handlePollSubmit}>
           <h1 className='font-bold text-secondary text-3xl'>Create a poll</h1>
@@ -123,13 +111,13 @@ export const NewPoll = () => {
                 id={`option-${index}`}
                 onChange={handleInputChange}
                 className={`${
-                  index < 2 && !pollFormValidation.isValid && !isFirstRender
+                  index < 2 && !pollFormValidation.isValid 
                     ? 'border-danger border-2'
                     : 'border'
                 } text-primary w-full border rounded-md px-3 py-2 mt-2 focus:outline-none focus:border-blue-500`}
                 form='create-poll-form'
               ></input>
-              {index < 2 && !pollFormValidation.isValid && !isFirstRender ? (
+              {index < 2 && !pollFormValidation.isValid ? (
                 <span className='text-danger'>
                   {pollFormValidation.message}
                 </span>

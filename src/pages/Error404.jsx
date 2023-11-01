@@ -3,7 +3,7 @@ export const ErrorNotFound = () => {
       <div className="mt-5">
         <h1
           style={{ fontSize: "4.5rem" }}
-          className="text-center fw-bold text-primary"
+          className="text-center font-bold text-primary"
         >
           404{" "}
         </h1>{" "}

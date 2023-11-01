@@ -26,6 +26,7 @@ export const PollResults = () => {
   useEffect(() => {
     async function fetchPollDetails() {
       const responsePollResults = await getPollResults(questionID);
+
       setLoading(false);
       if (!responsePollResults) {
         notify().error('Could not Load');
@@ -107,7 +108,7 @@ export const PollResults = () => {
   }
 
   const handleShareClick = () => {
-    setShowModal(!showModal); // Toggle the modal visibility
+    setShowModal(!showModal);
   };
 
   return (
