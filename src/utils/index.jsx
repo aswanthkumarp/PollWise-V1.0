@@ -1,4 +1,4 @@
-const API_ROOT = "http://localhost:8000/api";
+const API_ROOT = "https://pollwisev1.onrender.com/api";
 
 export const API_URLS = {
   login: () => `${API_ROOT}/user/create-session`,
@@ -6,7 +6,7 @@ export const API_URLS = {
   getIsEmailUnique: (email) => `${API_ROOT}/user/is-unique?email=${email}`,
   createNewPoll: () => `${API_ROOT}/question/create`,
   getPollResults: (id) => `${API_ROOT}/question/${id}`,
-  addVote: (optionID, userID) => `${API_ROOT}/options/add-vote/${optionID}`,
+  addVote: (optionID) => `${API_ROOT}/options/add-vote/${optionID}`,
   getUserChosenOption: (questionID) =>
     `${API_ROOT}/user/getChosenOption/${questionID}`,
   getMyPolls: () => `${API_ROOT}/user/mypolls`,

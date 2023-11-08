@@ -39,7 +39,7 @@ function Login() {
       ),
     });
     // Function call
-    let response =await auth.login(email, password);
+    let response = await auth.login(email, password);
     // enables the form submit button
     setLoggingIn({ ...loginButtonDefaultState });
     if (!response) {
@@ -49,7 +49,7 @@ function Login() {
     }
     if (response.success) {
       notify().success('Successfully Signed in');
-      console.log('login sucessfull');
+      // console.log('login sucessfull');
       // Redirect to shared link
     } else {
       // Login unsuccessful
@@ -74,7 +74,7 @@ function Login() {
           <h2 className='text-3xl font-semibold text-center text-secondary mb-6'>
             Sign In
           </h2>
-          <form  id='login-form' onSubmit={handleFormSubmit}>
+          <form id='login-form' onSubmit={handleFormSubmit}>
             <div className='mb-4'>
               <label className='block text-gray-600 font-medium'>
                 Email Address
@@ -127,7 +127,6 @@ function Login() {
             >
               {loggingIn.buttonTag}
             </Button>{' '}
-            {/* {error && <p className="text-red-600 text-center mb-2">{error}</p>} */}
             <p className='text-gray-600 text-center'>
               Don't have an account?{' '}
               <Link to='/signup' className='text-blue-500 hover:underline'>
