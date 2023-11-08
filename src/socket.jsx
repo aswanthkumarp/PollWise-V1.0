@@ -1,6 +1,6 @@
-import { io } from "socket.io-client";
+import { io } from 'socket.io-client';
 
-const URL = "https://pollwise.netlify.app";
+const URL = 'https://pollwisev1.onrender.com';
 
 export const socket = io(URL, {
   autoConnect: false,
