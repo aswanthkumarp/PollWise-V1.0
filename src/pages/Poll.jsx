@@ -243,7 +243,7 @@ export const Poll = () => {
       </div>
       <div className='text-center'>
         <button
-          className='p-4 bg-black rounded-full mb-5'
+          className='p-4 bg-boxcolor rounded-full mb-5'
           onClick={handleSubmitVote}
           disabled={chosenOption === '' || !isVoted ? false : true}
         >

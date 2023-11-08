@@ -168,8 +168,10 @@ export const PollResults = () => {
             <div className='bg-primary w-96 p-4 rounded-lg shadow-md'>
               <h2 className='text-2xl font-bold mb-4'>Share Link</h2>
               <p className='text-white'>Poll Vote Link</p>
-              <div className=' p-2 rounded' id='copy-link'>
+              <div className=' p-2 rounded overflow-hidden' id='copy-link'>
+              <p className=' break-words'>
               https://pollwise.netlify.app/poll/{question._id}
+              </p>
               </div>
               <p className='text-white mt-4'>
                 Copy the link from above to easily share this poll.
