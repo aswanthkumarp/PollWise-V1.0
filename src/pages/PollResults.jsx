@@ -169,7 +169,7 @@ export const PollResults = () => {
               <h2 className='text-2xl font-bold mb-4'>Share Link</h2>
               <p className='text-white'>Poll Vote Link</p>
               <div className=' p-2 rounded' id='copy-link'>
-                http://localhost:5173/poll/{question._id}
+              https://pollwise.netlify.app/poll/{question._id}
               </div>
               <p className='text-white mt-4'>
                 Copy the link from above to easily share this poll.

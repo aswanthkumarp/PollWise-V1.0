@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
 import Cookies from 'js-cookie';
-
 import { socket } from '../socket';
-
 import { getPollResults, addVote, getUserChosenOption } from '../api';
 import { Loader } from '../components/Loader';
 import { getFormattedDate } from '../utils';

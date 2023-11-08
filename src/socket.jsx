@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const URL = "http://localhost:4050";
+const URL = "https://pollwise.netlify.app";
 
 export const socket = io(URL, {
   autoConnect: false,
