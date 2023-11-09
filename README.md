@@ -9,6 +9,10 @@ Welcome to PollWise, a web polling application that allows users to create, log 
 - **Real-time Polling:** View poll updates in real-time.
 - **Search Functionality:** Search for existing polls using keywords.
 
+## Deployment
+
+The application is deployed and accessible at [PollWise Deployed Link](https://pollwise.netlify.app/).
+
 ## Server Side Code
 
 For the backend code repository, visit [PollWise Backend Repository](https://github.com/aswanthkumarp/Server-Of-PollWise).
@@ -24,9 +28,6 @@ For the backend code repository, visit [PollWise Backend Repository](https://git
 2. Install dependencies using `npm install`.
 3. Run the development server: `npm run dev`.
 
-## Deployment
-
-The application is deployed and accessible at [PollWise Deployed Link](https://pollwise.netlify.app/).
 
 ## State Management
 
