@@ -24,10 +24,12 @@ For the backend code repository, visit [PollWise Backend Repository](https://git
 2. Install dependencies using `npm install`.
 3. Run the development server: `npm run dev`.
 
+## Deployment
+
+The application is deployed and accessible at [PollWise Deployed Link](https://pollwise.netlify.app/).
 
 ## State Management
 
 State management in this project is handled using the Context API. For server API calls, the app utilizes the Fetch API.
 
 ---
-
